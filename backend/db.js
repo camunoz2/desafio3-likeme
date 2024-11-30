@@ -3,18 +3,19 @@ const pg = require("pg");
 const { Client } = pg;
 
 const client = new Client({
-  user: "desafiolatam",
-  host: "localhost",
-  database: "likeme",
-  password: "desafiolatam",
-  port: 5432,
+  user: process.env.USERNAME,
+  host: process.env.HOSTNAME,
+  database: process.env.DATABASE,
+  password: process.env.PASSWORD,
+  port: process.env.PORT,
+  ssl: true,
 });
 
 client
   .connect()
   .then(() => console.log("Conectado a la base de datos!"))
   .catch((err) => {
-    console.log("Estoy usando el puerto 5432 para la db x si acaso: ", err);
+    console.log("Error: ", err);
   });
 
 module.exports = client;

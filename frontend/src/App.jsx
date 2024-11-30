@@ -36,6 +36,7 @@ function App() {
 
   useEffect(() => {
     getPosts();
+    console.log(posts);
   }, []);
 
   return (

@@ -1,8 +1,15 @@
+import { useEffect } from "react"
+
 function Post({
   post: { id, titulo, img, descripcion, likes },
   like,
   eliminarPost,
 }) {
+
+  useEffect(() => {
+    console.log(img)
+  }, [])
+
   return (
     <div className="card col-12 col-sm-4 d-inline mx-0 px-3">
       <div className="card-body  p-0">
@@ -17,9 +24,8 @@ function Post({
             <div>
               <i
                 onClick={() => like(id)}
-                className={`fa-heart fa-xl ${
-                  likes ? "fa-solid" : "fa-regular"
-                }`}
+                className={`fa-heart fa-xl ${likes ? "fa-solid" : "fa-regular"
+                  }`}
               ></i>
               <span className="ms-1">{likes}</span>
             </div>
