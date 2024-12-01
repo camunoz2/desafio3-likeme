@@ -11,7 +11,7 @@ const client = new Client({
   ssl:
     process.env.NODE_ENV === "production"
       ? { rejectUnauthorized: false }
-      : false,
+      : true,
 });
 
 client
