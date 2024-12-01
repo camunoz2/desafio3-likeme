@@ -8,7 +8,10 @@ const client = new Client({
   database: process.env.DATABASE,
   password: process.env.PASSWORD,
   port: process.env.PORT,
-  ssl: true,
+  ssl:
+    process.env.NODE_ENV === "production"
+      ? { rejectUnauthorized: false }
+      : false,
 });
 
 client
@@ -16,6 +19,7 @@ client
   .then(() => console.log("Conectado a la base de datos!"))
   .catch((err) => {
     console.log("Error: ", err);
+    process.exit(1);
   });
 
 module.exports = client;
