@@ -16,12 +16,14 @@ endif
 badd +3 src/main.jsx
 badd +3 src/components/Form.jsx
 badd +5 src/components/Post.jsx
-badd +0 src/App.jsx
+badd +1 src/App.jsx
+badd +1 frontend/src/App.jsx
+badd +4 backend/package.json
 argglobal
 %argdel
-edit src/App.jsx
+edit frontend/src/App.jsx
 argglobal
-balt src/components/Post.jsx
+balt backend/package.json
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -32,11 +34,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 13 - ((12 * winheight(0) + 22) / 44)
+let s:l = 1 - ((0 * winheight(0) + 22) / 44)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 13
+keepjumps 1
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
